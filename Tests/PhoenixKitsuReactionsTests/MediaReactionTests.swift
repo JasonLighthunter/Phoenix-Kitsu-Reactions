@@ -154,7 +154,7 @@ class MediaReactionTests: XCTestCase {
     XCTAssertEqual(mediaReactionAttributes?.upVotesCount, 6)
   }
 
-  func testMediaReactionNegativeMissingData() {
+  func testMediaReactionInvalidMissingData() {
     let json = invalidMissingDataJSON
 
     if JSONSerialization.isValidJSONObject(json as Any) {

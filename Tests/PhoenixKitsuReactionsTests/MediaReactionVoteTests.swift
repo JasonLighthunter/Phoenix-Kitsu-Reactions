@@ -72,7 +72,7 @@ class MediaReactionVoteTests: XCTestCase {
     super.tearDown()
   }
   
-  func testMediaReactionFullyFilled() {
+  func testMediaReactionVoteFullyFilled() {
     let json = fullyFilledJSON
     
     if JSONSerialization.isValidJSONObject(json as Any) {
@@ -94,7 +94,7 @@ class MediaReactionVoteTests: XCTestCase {
     XCTAssertEqual(mediaReactionVoteAttributes?.updatedAt, "2017-08-08T12:39:19.217Z")
   }
   
-  func testMediaReactionValidMissingData() {
+  func testMediaReactionVoteValidMissingData() {
     let json = validMissingDataJSON
     
     if JSONSerialization.isValidJSONObject(json as Any) {
@@ -116,7 +116,7 @@ class MediaReactionVoteTests: XCTestCase {
     XCTAssertEqual(mediaReactionVoteAttributes?.updatedAt, "2017-08-08T12:39:19.217Z")
   }
   
-  func testMediaReactionValidNilData() {
+  func testMediaReactionVoteValidNilData() {
     let json = validNilDataJSON
     
     if JSONSerialization.isValidJSONObject(json as Any) {
@@ -138,7 +138,7 @@ class MediaReactionVoteTests: XCTestCase {
     XCTAssertEqual(mediaReactionVoteAttributes?.updatedAt, "2017-08-08T12:39:19.217Z")
   }
   
-  func testMediaReactionNegativeMissingData() {
+  func testMediaReactionVoteInvalidMissingData() {
     let json = invalidMissingDataJSON
     
     if JSONSerialization.isValidJSONObject(json as Any) {
@@ -151,7 +151,7 @@ class MediaReactionVoteTests: XCTestCase {
     XCTAssertNil(mediaReactionVote)
   }
   
-  func testMediaReactionInvalidNilData() {
+  func testMediaReactionVoteInvalidNilData() {
     let json = invalidNilDataJSON
     
     if JSONSerialization.isValidJSONObject(json as Any) {
