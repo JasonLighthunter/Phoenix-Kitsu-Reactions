@@ -46,12 +46,12 @@ class MediaReactionTests: XCTestCase {
   ]
 
   let invalidMissingDataJSON: [String : Any] = [
-    "id": "",
+    "id": "1",
+    "type": "mediaReactions",
     "links": [
       "self": "https://kitsu.io/api/edge/mediaReactions/4"
     ],
     "attributes": [
-      "createdAt": "",
       "updatedAt": "",
       "reaction": "",
       "upVotesCount": 6
@@ -59,12 +59,13 @@ class MediaReactionTests: XCTestCase {
   ]
   
   let invalidNilDataJSON: [String : Any?] = [
-    "id": nil,
+    "id": "1",
+    "type": "mediaReactions",
     "links": [
       "self": "https://kitsu.io/api/edge/mediaReactions/4"
     ],
     "attributes": [
-      "createdAt": "",
+      "createdAt": nil,
       "updatedAt": "",
       "reaction": "",
       "upVotesCount": 6
@@ -163,8 +164,14 @@ class MediaReactionTests: XCTestCase {
     } else {
       mediaReaction = nil
     }
-
-    XCTAssertNil(mediaReaction)
+    mediaReactionAttributes = mediaReaction?.attributes
+    
+    XCTAssertNotNil(mediaReaction)
+    
+    XCTAssertEqual(mediaReaction?.objectID, "1")
+    XCTAssertEqual(mediaReaction?.type, "mediaReactions")
+    
+    XCTAssertNil(mediaReactionAttributes)
   }
   
   func testMediaReactionInvalidNilData() {
@@ -176,7 +183,13 @@ class MediaReactionTests: XCTestCase {
     } else {
       mediaReaction = nil
     }
+    mediaReactionAttributes = mediaReaction?.attributes
     
-    XCTAssertNil(mediaReaction)
+    XCTAssertNotNil(mediaReaction)
+    
+    XCTAssertEqual(mediaReaction?.objectID, "1")
+    XCTAssertEqual(mediaReaction?.type, "mediaReactions")
+    
+    XCTAssertNil(mediaReactionAttributes)
   }
 }
